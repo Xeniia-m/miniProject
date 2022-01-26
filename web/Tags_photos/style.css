@@ -1,0 +1,126 @@
+html{
+    font-size: 62.5%;/* 16px* 62.5 = 10px =1rem */
+    box-sizing: border-box;
+}
+
+div.gallery {
+    margin: 5px;
+    border: 3px solid rgb(117, 102, 102);
+    background-color: rgba(232, 245, 255, 0.39);
+    float: left;
+    width: 100px;
+    
+  }
+  div.gallery img{
+    margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+div.gallery img:hover { 
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+ }
+
+
+
+
+div.myGallery{
+           text-align: center;    
+      margin: auto;
+width: 60%;
+}
+
+
+body{
+    font: 1.6rem Helvetica;
+    height: 100vh;
+    margin: 0;
+}
+.grid-container{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "pages"
+    "main"
+    "footer"
+    "footer2";
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem 5rem 1fr 5rem 5rem;
+    height: 100%;
+}
+.header{
+    grid-area: header;
+    background-color: #203040;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.pages{
+    grid-area: pages;
+    background-color: #203040;
+    color: #ffffff;
+    /*display: flex;*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem;
+}
+
+
+
+.brand a{
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.pages a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.7rem;
+
+}
+
+
+.pages a:hover{
+    color: rgb(133, 8, 8);
+}
+
+.main{
+    grid-area: main;
+}
+
+.footer{
+    grid-area: footer;
+    background-color: #203040;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer{
+    grid-area: footer;
+    background-color: #203040;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer2{
+    grid-area: footer2;
+    font-size: 1.2rem;
+    background-color: #203040;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
