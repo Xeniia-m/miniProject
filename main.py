@@ -19,6 +19,7 @@ originColors = {"woman_with_mask": "#ffffff #1a1a1a #f2f2f2",
                 "rabbit": "#ffffff",
                 "no_hand_shake": "#000000",
                 "note": "#000000",
+                "gloves": "#ffffff",
                 "people_sitting": "#000000",
                 "man_walking": "#000000",
                 "cough": "#000000",
@@ -28,7 +29,13 @@ originColors = {"woman_with_mask": "#ffffff #1a1a1a #f2f2f2",
                 "2m": "#000000",
                 "gloves": "#ffffff"
                 }
-people_with_mask = {"man_with_mask", "woman_with_mask", "boy_with_mask", "girl_with_mask"}
+
+people_with_mask = {
+                "woman_with_mask",
+                "man_with_mask",
+                "boy_with_mask",
+                "girl_with_mask"
+}
 
 colors = {"black": "#000000",
           "white": "#f2f2f2",
@@ -66,10 +73,10 @@ def createPhotosPage():
     for file in files:
         #tags_page = createTags(file)
         svg = "<div class =\"gallery\" > <a   href = \"Tags_photos/photos/"+file+"\">   <img  src = \"Tags_photos/photos/" + file + \
-              "\" alt = \"Image Not Found\"    width = \"100\"   height = \"100\" > </a> </div> "
+              "\" alt = \"Image Not Found\"    width = \"100\"   height = \"100\"  target=\"_blank\"> </a> </div> "
         page = page + svg
 
-    fin = open("web/templates/res.txt", "rt")
+    fin = open("web/templates/res.html", "rt")
     data = fin.read()
     data = data.replace("place for svg", page)
 
@@ -95,15 +102,16 @@ def createTags(file):
                 page = page + "<div class =\"gallery\" > <a  target = \"_blank\"   href = \"photos/"+image+"\">   <img  src = \"photos/"+image + \
         "\" alt = \"Image Not Found\"    width = \"100\"   height = \"100\" > </a> </div> "
         count = count+1
-    fin = open("web/templates/res.txt", "rt")
+    fin = open("web/templates/tags.html", "rt")
     data = fin.read()
     data = data.replace("place for svg", page)
 
     fin.close()
     result = open("web/Tags_photos/Tags_photo_"+file.split('.')[0]+".html", "wt")
-    result.write(data);
+    result.write(data)
     result.close()
     return "Tags_photo_"+file.split('.')[0]+".html"
+
 
 def createResultPage():
 
@@ -111,13 +119,13 @@ def createResultPage():
     page = ""
     for file in files:
         tags_page = createTags(file)
-        svg = "<div class =\"gallery\" > <a   href = \"Tags_photos/"+tags_page+"\">   <img  src = \"Collection/"+file + \
+        svg = "<div class =\"gallery\" > <a   href = \"Tags_photos/"+tags_page+"\">   <img  src = \"Collection/"+file +\
         "\" alt = \"Image Not Found\"    width = \"100\"   height = \"100\" > </a> </div> "
         page = page + svg
 
-    fin = open("web/templates/res.txt","rt")
+    fin = open("web/templates/res.html", "rt")
     data = fin.read()
-    data = data.replace("place for svg",page)
+    data = data.replace("place for svg", page)
 
     fin.close()
     result = open("web/Result.html", "wt")
@@ -165,8 +173,8 @@ tbl = pd.read_csv("mask_please.csv", encoding="utf_8_sig")
 tbl["SVG tags"] = ""
 count = 0
 for line in tbl["image"]:
-    if str(line)=="nan":
-        count=count+1
+    if str(line) == "nan":
+        count = count+1
         continue
 
     objects = line.split("|")
@@ -174,11 +182,11 @@ for line in tbl["image"]:
     if objects[0] != " ":
         for objectColor in objects:
             svg_file = changeColorSvg(objectColor)
-            if svg_file!="":
+            if svg_file != "":
                 tags.append(svg_file)
     if len(tags) > 0:
         tbl["SVG tags"][count] = ' | '.join(tags)
-    count=count+1
+    count = count+1
 
 tbl.to_csv("masks.csv", encoding="utf_8_sig", index=False)
 createResultPage()
