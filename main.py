@@ -102,7 +102,7 @@ def createTags(file):
                 page = page + "<div class =\"gallery\" > <a  target = \"_blank\"   href = \"photos/"+image+"\">   <img  src = \"photos/"+image + \
         "\" alt = \"Image Not Found\"    width = \"100\"   height = \"100\" > </a> </div> "
         count = count+1
-    fin = open("web/templates/tags.html", "rt")
+    fin = open("web/templates/tags_photo.html", "rt")
     data = fin.read()
     data = data.replace("place for svg", page)
 
