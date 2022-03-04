@@ -1,7 +1,7 @@
 To run the project:
  - download all the photos from the drive - https://drive.google.com/drive/folders/1iKy-94ITHD8P9nNE8NL5jvh3JEcZQ76S
  - add all the photos to a "web/Tags_photos/photos"  folder
- - run main.py file  (make sure that there is no masks.csv file in the project folder - that will be a result table) .
+ - run the main.py file  (make sure that there is no masks.csv file in the project folder - that will be a result table) .
 
 If you want to add a photo with a "mask, please" sign to the library:
 1. Add the photo to a "web/Tags_photos/photos"  folder
@@ -68,13 +68,13 @@ skin:
 
 	All other objects should be: [object color] (Example: [mask black])
 
-  How to add a new SVG object:
+  To add a new SVG object:
 
 	1. Download black/white SVG object
 	2. Edit it and save the main color code (the place that will change according to [object color] description)
 	3. Open tha main.py file and add the [(svg file name) (color code)] to the originColors dictionary
 	4. Use the name of the new SVG file for Image description
 
- How to add a new color: 
+ To add a new color: 
 
 	- Add the new color name and it's code to the colors dictionary in the main.py
